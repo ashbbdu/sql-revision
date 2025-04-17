@@ -6,6 +6,11 @@
 -- SUM()
 -- COUNT()
 
+
+-- TODO : see how full join works
+
+
+
 use sql_invoicing;
 
 SELECT 
@@ -41,3 +46,14 @@ SUM(payment_total) ,
   SUM(invoice_total - payment_total)    as what_we_expcet FROM invoices
  WHERE due_date 
  ;
+
+
+SELECT * FROM invoices WHERE client_id = 2;
+ 
+
+
+
+ SELECT c.name , i.client_id , SUM(i.payment_total) FROM clients c 
+ JOIN invoices i
+ USING (client_id) GROUP BY c.name 
+ ORDER BY SUM(i.payment_total) DESC;
