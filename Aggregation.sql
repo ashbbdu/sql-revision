@@ -50,10 +50,22 @@ SUM(payment_total) ,
 
 SELECT * FROM invoices WHERE client_id = 2;
  
-
+use sql_invoicing;
 
 
  SELECT c.name , i.client_id , SUM(i.payment_total) FROM clients c 
  JOIN invoices i
- USING (client_id) GROUP BY c.name 
+ USING (client_id) GROUP BY c.name  , i.client_id
  ORDER BY SUM(i.payment_total) DESC;
+
+
+
+
+--  Exercise 2
+
+SELECT p.date , SUM(p.amount) , pm.name AS Payment_Method  FROM
+payments p JOIN 
+payment_methods pm
+on p.payment_method = pm.payment_method_id
+
+GROUP BY date , payment_method;
