@@ -67,5 +67,4 @@ SELECT p.date , SUM(p.amount) , pm.name AS Payment_Method  FROM
 payments p JOIN 
 payment_methods pm
 on p.payment_method = pm.payment_method_id
-
-GROUP BY date , payment_method;
+GROUP BY date , payment_method ORDER BY p.date;
