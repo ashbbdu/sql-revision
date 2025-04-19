@@ -28,3 +28,11 @@ ON e.reports_to = m.employee_id;
 -- Excersise
 -- In sql_hr database : 
 -- Find the employees who earn more than average
+
+
+SELECT SUM(salary) / COUNT(salary) as Avearage FROM employees;
+
+SELECT employee_id , employee.first_name , employee.salary FROM employees 
+WHERE salary > (
+    SELECT SUM(salary) / COUNT(salary) as Avearage FROM employees
+);
