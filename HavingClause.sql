@@ -38,14 +38,22 @@ use sql_store;
 -- ; 
 
 SELECT 
+c.customer_id,
 c.first_name , 
-c.city , 
-c.state , 
+c.last_name,
+-- c.city , 
+-- c.state , 
 SUM(oi.unit_price  * oi.quantity) AS total_spend 
 FROM 
 customers c JOIN
 orders o USING(customer_id) JOIN
 order_items oi USING (order_id)
  WHERE c.state = "VA" 
-GROUP BY c.first_name , c.city , c.state
+GROUP BY 
+c.customer_id,
+c.first_name , 
+c.last_name
+--  c.city , 
+--  c.state
+-- HAVING total_spend > 100
 ; 
