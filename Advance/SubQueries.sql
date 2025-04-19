@@ -32,7 +32,11 @@ ON e.reports_to = m.employee_id;
 
 SELECT SUM(salary) / COUNT(salary) as Avearage FROM employees;
 
-SELECT employee_id , employee.first_name , employee.salary FROM employees 
+SELECT 
+employee_id,
+first_name,
+salary 
+FROM employees 
 WHERE salary > (
-    SELECT SUM(salary) / COUNT(salary) as Avearage FROM employees
+    SELECT AVG(salary) FROM employees
 );
