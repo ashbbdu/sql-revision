@@ -23,3 +23,14 @@ SELECT Local_Client_Name , SUM(
 
 
 
+( SELECT * 
+    FROM shipment_profile 
+   WHERE Company = 'LSL' 
+   LIMIT 10
+)
+UNION ALL                
+( SELECT * 
+    FROM shipment_profile 
+   WHERE Company = 'INJ' 
+   LIMIT 10
+);
