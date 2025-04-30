@@ -14,8 +14,9 @@ UNION ALL
 
 
 SELECT * FROM shipment_profile LIMIT 10;
+SELECT * FROM shipment_profile LIMIT 10;
 
 
 SELECT Local_Client_Name , SUM(
-    
+
 )  FROM
