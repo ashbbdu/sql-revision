@@ -22,3 +22,8 @@ SELECT Local_Client_Name , SUM(
 )  FROM
 
 
+SELECT Local_Client_Name , SUM(
+
+)  FROM
+
+
